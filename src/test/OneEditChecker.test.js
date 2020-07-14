@@ -1,31 +1,34 @@
-const oneEditChecker = require("../OneEditChecker");
-const stringCombo = require("../StringCombo");
+import OneEditChecker from "../OneEditChecker";
+import StringCombo from "../StringCombo";
 
 // Input Validation
 test("Set output param undefined, should return exception", () => {
-  const obj = new stringCombo("hello");
-  expect(oneEditChecker.isOneEditAway(obj)).toThrow(TypeError);
+  const obj = new StringCombo("hello");
+  const val = () => {
+    OneEditChecker.isOneEditAway(obj);
+  };
+  expect(val).toThrow("bad input!");
 });
 
 //Insert
 test("Should return true as It requires one character Insertion", () => {
-  const obj = new stringCombo("ball", "balls");
-  expect(oneEditChecker.isOneEditAway(obj)).toBe(true);
+  const obj = new StringCombo("ball", "balls");
+  expect(OneEditChecker.isOneEditAway(obj)).toBe(true);
 });
 
 //Remove
 test("Should return true as It requires one character to remove", () => {
-  const obj = new stringCombo("note", "not");
-  expect(oneEditChecker.isOneEditAway(obj)).toBe(true);
+  const obj = new StringCombo("note", "not");
+  expect(OneEditChecker.isOneEditAway(obj)).toBe(true);
 });
 
 //Replace
 test("Should return true as It requires one character to replace", () => {
-  const obj = new stringCombo("bat", "bag");
-  expect(oneEditChecker.isOneEditAway(obj)).toBe(true);
+  const obj = new StringCombo("bat", "bag");
+  expect(OneEditChecker.isOneEditAway(obj)).toBe(true);
 });
 
 test("Should return false as It input character length not in expected range", () => {
-  const obj = new stringCombo("battle", "bag");
-  expect(oneEditChecker.isOneEditAway(obj)).toBe(false);
+  const obj = new StringCombo("battle", "bag");
+  expect(OneEditChecker.isOneEditAway(obj)).toBe(false);
 });

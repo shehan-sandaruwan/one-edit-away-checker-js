@@ -1,14 +1,11 @@
 {
   "name": "one-edit-away-checker-js",
-  "jest": {
-    "verbose": true
-  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
@@ -16,9 +13,13 @@
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
+    "babel-jest": "^26.1.0",
     "babel-loader": "^8.1.0",
     "jest": "^26.1.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"
+  },
+  "jest": {
+    "verbose": true
   }
 }
